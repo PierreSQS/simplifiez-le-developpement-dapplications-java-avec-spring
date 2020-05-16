@@ -7,6 +7,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.example.demo.ticket.business.factory.ManagerFactory;
 import org.example.demo.ticket.business.manager.ProjetManager;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.exception.NotFoundException;
@@ -30,8 +31,8 @@ public class ProjetResource {
      */
     @GET
     @Path("{id}")
-    public Projet get(@PathParam("id") Integer pId) throws NotFoundException {
-        ProjetManager vProjetManager = new ProjetManager();
+    public Projet getProjet(@PathParam("id") Integer pId) throws NotFoundException {
+        ProjetManager vProjetManager = ManagerFactory.getProjetManager();
         Projet vProjet = vProjetManager.getProjet(pId);
         return vProjet;
     }
@@ -43,7 +44,7 @@ public class ProjetResource {
      * @return List
      */
     @GET
-    public List<Projet> get() {
+    public List<Projet> getProjets() {
         ProjetManager vProjetManager = new ProjetManager();
         List<Projet> vListProjet = vProjetManager.getListProjet();
         return vListProjet;
