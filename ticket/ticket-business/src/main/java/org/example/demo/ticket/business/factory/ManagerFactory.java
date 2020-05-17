@@ -1,11 +1,16 @@
 package org.example.demo.ticket.business.factory;
 
 import org.example.demo.ticket.business.manager.ProjetManager;
+import org.example.demo.ticket.business.manager.TicketManager;
 
 public class ManagerFactory {
 
-	public static ProjetManager getProjetManager() {
+	public ProjetManager getProjetManager() {
 		return new ProjetManager();
+	}
+	
+	public TicketManager getTicketManager() {
+		return new TicketManager();
 	}
 
 }
