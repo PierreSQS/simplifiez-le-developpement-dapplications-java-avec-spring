@@ -1,19 +1,14 @@
-package org.example.demo.ticket.business.manager;
-
+package org.example.demo.ticket.business.manager.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.example.demo.ticket.business.manager.contract.ProjetManager;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.exception.NotFoundException;
 
+public class ProjetManagerImpl implements ProjetManager {
 
-/**
- * Manager des beans du package Projet.
- *
- * @author lgu
- */
-public class ProjetManager {
 
     /**
      * Renvoie le projet demandé
@@ -22,7 +17,8 @@ public class ProjetManager {
      * @return Le {@link Projet}
      * @throws NotFoundException Si le projet n'est pas trouvé
      */
-    public Projet getProjet(Integer pId) throws NotFoundException {
+    @Override
+	public Projet getProjet(Integer pId) throws NotFoundException {
         // Je n'ai pas encore codé la DAO
         // Je mets juste un code temporaire pour commencer le cours...
         if (pId < 1) {
@@ -39,7 +35,8 @@ public class ProjetManager {
      *
      * @return List
      */
-    public List<Projet> getListProjet() {
+    @Override
+	public List<Projet> getListProjet() {
         // Je n'ai pas encore codé la DAO
         // Je mets juste un code temporaire pour commencer le cours...
         List<Projet> vList = new ArrayList<>();

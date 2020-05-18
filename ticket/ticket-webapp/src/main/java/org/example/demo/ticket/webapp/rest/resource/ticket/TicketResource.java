@@ -1,6 +1,7 @@
 package org.example.demo.ticket.webapp.rest.resource.ticket;
 
 import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -8,7 +9,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.example.demo.ticket.business.factory.ManagerFactory;
 import org.example.demo.ticket.business.manager.TicketManager;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
 import org.example.demo.ticket.model.exception.NotFoundException;

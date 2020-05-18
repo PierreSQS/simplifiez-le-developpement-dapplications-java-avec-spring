@@ -1,11 +1,11 @@
 package org.example.demo.ticket.business.factory;
 
-import org.example.demo.ticket.business.manager.ProjetManager;
+import org.example.demo.ticket.business.manager.contract.ProjetManager;
 import org.example.demo.ticket.business.manager.TicketManager;
 
 public class ManagerFactory {
 
-	private ProjetManager projetMgr;
+	private org.example.demo.ticket.business.manager.contract.ProjetManager projetMgr;
 	
 	private TicketManager ticketMgr;
 	
@@ -21,7 +21,7 @@ public class ManagerFactory {
 		this.ticketMgr = ticketMgr;
 	}
 
-	public ProjetManager getProjetManager() {
+	public org.example.demo.ticket.business.manager.contract.ProjetManager getProjetManager() {
 		return projetMgr;
 	}
 	
