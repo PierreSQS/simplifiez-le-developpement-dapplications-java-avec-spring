@@ -5,8 +5,8 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import org.example.demo.ticket.business.factory.ManagerFactory;
-import org.example.demo.ticket.business.manager.TicketManager;
 import org.example.demo.ticket.business.manager.impl.ProjetManagerImpl;
+import org.example.demo.ticket.business.manager.impl.TicketManagerImpl;
 import org.example.demo.ticket.webapp.rest.resource.AbstractResource;
 
 @WebListener
@@ -16,7 +16,7 @@ public class DependencyContextListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent sCtxt) {
 		ManagerFactory vMgrFactory = new ManagerFactory();
 
-		vMgrFactory.setTicketMgr(new TicketManager());
+		vMgrFactory.setTicketMgr(new TicketManagerImpl());
 		vMgrFactory.setProjetMgr(new ProjetManagerImpl());
 
 		AbstractResource.setMgrFactory(vMgrFactory);
