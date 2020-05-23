@@ -1,9 +1,14 @@
 package org.example.demo.ticket.batch;
 
 
+import java.util.Arrays;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.model.exception.TechnicalException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 /**
@@ -24,10 +29,21 @@ public class Main {
      * @throws TechnicalException sur erreur technique
      */
     public static void main(String[] pArgs) throws TechnicalException {
-        try {
+        
+    	ApplicationContext appCtx = 
+    			new ClassPathXmlApplicationContext("classpath:/applicationContext.xml");
+    	
+    	
+    	
+    	try {
             if (pArgs.length < 1) {
                 throw new TechnicalException("Veuillez préciser le traitement à effectuer !");
             }
+            
+        	ManagerFactory vMgrFactory = appCtx.getBean("managerFactory", ManagerFactory.class);
+        	
+        	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(name ->{LOGGER.info(name);});
+
 
             String vTraitementId = pArgs[0];
             if ("ExportTicketStatus".equals(vTraitementId)) {
