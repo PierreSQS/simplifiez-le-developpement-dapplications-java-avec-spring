@@ -6,7 +6,7 @@ import org.example.demo.ticket.model.bean.ticket.Ticket;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
 
-public interface TickteManager {
+public interface TicketManager {
 
 	/**
 	 * Renvoie le nombre de {@link Ticket} correspondants aux critères de recherche.

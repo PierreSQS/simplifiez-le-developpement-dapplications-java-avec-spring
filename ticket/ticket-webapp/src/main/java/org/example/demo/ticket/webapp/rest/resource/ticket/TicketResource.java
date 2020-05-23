@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.example.demo.ticket.business.manager.contract.TickteManager;
+import org.example.demo.ticket.business.manager.contract.TicketManager;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
@@ -35,7 +35,7 @@ public class TicketResource extends AbstractResource {
     @GET
     @Path("{numero}")
     public Ticket getTicket(@PathParam("numero") Long pNumero) throws NotFoundException {
-        TickteManager vTicketManager = getManagerFactory().getTicketManager();
+        TicketManager vTicketManager = getManagerFactory().getTicketManager();
         Ticket vTicket = vTicketManager.getTicket(pNumero);
         return vTicket;
     }
@@ -49,7 +49,7 @@ public class TicketResource extends AbstractResource {
     @GET
     @Path("search")
     public List<Ticket> searchTicketPerProjetId(@QueryParam("projetId") Integer pProjetId) {
-        TickteManager vTicketManager = getManagerFactory().getTicketManager();
+        TicketManager vTicketManager = getManagerFactory().getTicketManager();
         List<Ticket> vList = vTicketManager.getListTicket(new RechercheTicket()
                                                               .setProjetId(pProjetId));
         return vList;

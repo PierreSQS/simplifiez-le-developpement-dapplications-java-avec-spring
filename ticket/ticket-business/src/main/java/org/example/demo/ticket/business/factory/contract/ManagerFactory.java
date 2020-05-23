@@ -1,17 +1,17 @@
 package org.example.demo.ticket.business.factory.contract;
 
 import org.example.demo.ticket.business.manager.contract.ProjetManager;
-import org.example.demo.ticket.business.manager.contract.TickteManager;
+import org.example.demo.ticket.business.manager.contract.TicketManager;
 
 public interface ManagerFactory {
 
-	TickteManager getTicketManager();
+	TicketManager getTicketManager();
 
 	ProjetManager getProjetManager();
 
-	void setTicketMgr(TickteManager ticketMgr);
+	void setTicketMgr(TicketManager ticketMgr);
 
-	TickteManager getTicketMgr();
+	TicketManager getTicketMgr();
 
 	void setProjetMgr(ProjetManager projetMgr);
 

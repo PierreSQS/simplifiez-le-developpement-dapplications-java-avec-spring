@@ -2,13 +2,13 @@ package org.example.demo.ticket.business.factory.impl;
 
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.business.manager.contract.ProjetManager;
-import org.example.demo.ticket.business.manager.contract.TickteManager;
+import org.example.demo.ticket.business.manager.contract.TicketManager;
 
 public class ManagerFactoryImpl implements ManagerFactory {
 
 	private ProjetManager projetMgr;
 
-	private TickteManager ticketMgr;
+	private TicketManager ticketMgr;
 
 	@Override
 	public void setProjetMgr(ProjetManager projetMgr) {
@@ -16,12 +16,12 @@ public class ManagerFactoryImpl implements ManagerFactory {
 	}
 
 	@Override
-	public TickteManager getTicketMgr() {
+	public TicketManager getTicketMgr() {
 		return ticketMgr;
 	}
 
 	@Override
-	public void setTicketMgr(TickteManager ticketMgr) {
+	public void setTicketMgr(TicketManager ticketMgr) {
 		this.ticketMgr = ticketMgr;
 	}
 
@@ -31,7 +31,7 @@ public class ManagerFactoryImpl implements ManagerFactory {
 	}
 
 	@Override
-	public TickteManager getTicketManager() {
+	public TicketManager getTicketManager() {
 		return ticketMgr;
 	}
 
