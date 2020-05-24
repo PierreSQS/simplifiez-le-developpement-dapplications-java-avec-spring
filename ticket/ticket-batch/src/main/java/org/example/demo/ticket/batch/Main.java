@@ -7,7 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.model.exception.TechnicalException;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
@@ -30,7 +30,7 @@ public class Main {
      */
     public static void main(String[] pArgs) throws TechnicalException {
         
-    	ApplicationContext appCtx = 
+    	ConfigurableApplicationContext  appCtx = 
     			new ClassPathXmlApplicationContext("classpath:/applicationContext.xml");
     	
     	
@@ -55,6 +55,8 @@ public class Main {
         } catch (Throwable vThrowable) {
             LOGGER.error(vThrowable);
             System.exit(1);
-        }
+        } finally {
+			appCtx.close();
+		}
     }
 }

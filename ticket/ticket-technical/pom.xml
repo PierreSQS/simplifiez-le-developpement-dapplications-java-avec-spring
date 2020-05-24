@@ -26,6 +26,18 @@
     <!-- =============================================================== -->
     <dependencies>
         <!-- ===== Bibliothèques tierces ===== -->
+		<!-- JSR-330 -->
+		<dependency>
+		    <groupId>javax.inject</groupId>
+		    <artifactId>javax.inject</artifactId>
+	    </dependency>
+		<!-- contrairememt à la version 4.3.11.RELEASE -->
+		<!-- nécessaire pour la version 5.2.6.RELEASE -->
+  		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+ 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>

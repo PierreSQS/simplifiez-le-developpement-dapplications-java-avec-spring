@@ -101,6 +101,7 @@
             </dependency>
 
             <!-- ===== Bibliothèques tierces ===== -->
+ 			<!-- Springframework BOM -->
  			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
@@ -108,7 +109,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-            <dependency>
+			<!-- JSR-330 -->
+			<dependency>
+			    <groupId>javax.inject</groupId>
+			    <artifactId>javax.inject</artifactId>
+			    <version>1</version>
+			</dependency>
+			<dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
