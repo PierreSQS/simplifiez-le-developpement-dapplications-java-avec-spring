@@ -34,9 +34,7 @@ public class Main {
     public static void main(String[] pArgs) throws TechnicalException {
         
     	AnnotationConfigApplicationContext  appCtx = 
-    			new AnnotationConfigApplicationContext();
-    	appCtx.register(SpringConfiguration.class);
-    	appCtx.refresh();    	
+    			new AnnotationConfigApplicationContext(SpringConfiguration.class);   	
     	
     	
     	try {
