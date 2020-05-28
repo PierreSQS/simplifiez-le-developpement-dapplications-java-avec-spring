@@ -42,7 +42,8 @@ public class Main {
             
         	ManagerFactory vMgrFactory = appCtx.getBean("managerFactory", ManagerFactory.class);
         	
-        	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(name ->{LOGGER.info(name);});
+        	//Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(name ->{LOGGER.info(name);});
+        	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(LOGGER::info);
 
 
             String vTraitementId = pArgs[0];

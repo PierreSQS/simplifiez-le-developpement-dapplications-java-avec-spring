@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="
-            http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- ===== Déclaration des Managers ===== -->
-    <bean id="projetManager" class="org.example.demo.ticket.business.manager.impl.ProjetManagerImpl"/>
-    <bean id="ticketManager" class="org.example.demo.ticket.business.manager.impl.TicketManagerImpl"/>   
-    
+	<!-- ==== Ne prend en compte que les annotations ==== -->
+    <!-- ==== dans le contexte où il est defini  ==== -->
+    <!-- ==== PAS NÉCESSAIRE quand param d'en bas présent==== -->
+	<!--context:annotation-config/-->
 
-    <!-- ===== ManagerFactory ===== -->
-    <bean id="managerFactory" class="org.example.demo.ticket.business.factory.impl.ManagerFactoryImpl">
-    	<property name="projetMgr" ref="projetManager"/>
-    	<property name="ticketMgr" ref="ticketManager"/>
-    </bean>
+	<!-- ==== scanne le package défini pour ==== -->
+	<!-- ==== trouver les beans annotés active implicitement ==== -->
+	<!-- ==== le param en commentaire d'en haut (voir docu ==== -->
+    <context:component-scan base-package="org.example.demo.ticket"/>    
+
 </beans>
