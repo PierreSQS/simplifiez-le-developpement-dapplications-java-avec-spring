@@ -3,12 +3,15 @@ package org.example.demo.ticket.batch;
 
 import java.util.Arrays;
 
+import javax.inject.Inject;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.batch.configuration.SpringConfiguration;
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.model.exception.TechnicalException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Configuration;
 
 
 /**
@@ -43,7 +46,11 @@ public class Main {
         	
         	//Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(name ->{LOGGER.info(name);});
         	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(LOGGER::info);
-
+        	LOGGER.info("Total of Beans: "+appCtx.getBeanDefinitionCount());
+        	LOGGER.info("Beans with annotation \"Configuration\":");
+        	Arrays.asList(appCtx.getBeanNamesForAnnotation(Configuration.class))
+        		.stream()
+        		.forEach(name ->{LOGGER.info(name);});
 
             String vTraitementId = pArgs[0];
             if ("ExportTicketStatus".equals(vTraitementId)) {

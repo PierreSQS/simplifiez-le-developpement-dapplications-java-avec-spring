@@ -7,15 +7,6 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- ==== Ne prend en compte que les annotations dans ==== -->
-    <!-- ==== le contexte où il est defini pas nécessaire ==== -->
-    <!-- ==== quand param d'en bas présent==== -->
-	<!--context:annotation-config/-->
-
-	<!-- ==== scanne le package défini pour ==== -->
-	<!-- ==== trouver les beans annotés ==== -->
-    <context:component-scan base-package="org.example.demo.ticket"/>    
-
 	<!-- ==== Pour appeler une méthode statique sur la classe 
 	          abstraite AbstractResource ===== -->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
