@@ -10,8 +10,10 @@ import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.batch.configuration.SpringConfiguration;
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.model.exception.TechnicalException;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 /**
@@ -33,8 +35,8 @@ public class Main {
      */
     public static void main(String[] pArgs) throws TechnicalException {
         
-    	AnnotationConfigApplicationContext  appCtx = 
-    			new AnnotationConfigApplicationContext(SpringConfiguration.class);   	
+    	ConfigurableApplicationContext  appCtx = 
+    			new ClassPathXmlApplicationContext("classpath:/bootstrapContext.xml");   	
     	
     	
     	try {

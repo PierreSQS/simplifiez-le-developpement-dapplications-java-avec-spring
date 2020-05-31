@@ -7,6 +7,17 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- ===== Déclaration des Managers ===== -->
+    <bean id="projetManager" class="org.example.demo.ticket.business.manager.impl.ProjetManagerImpl"/>
+    <bean id="ticketManager" class="org.example.demo.ticket.business.manager.impl.TicketManagerImpl"/>   
+
+
+    <!-- ===== ManagerFactory ===== -->
+    <bean id="managerFactory" class="org.example.demo.ticket.business.factory.impl.ManagerFactoryImpl">
+    	<property name="projetMgr" ref="projetManager"/>
+    	<property name="ticketMgr" ref="ticketManager"/>
+    </bean>
+
 	<!-- ==== Pour appeler une méthode statique sur la classe 
 	          abstraite AbstractResource ===== -->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
