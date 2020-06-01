@@ -7,9 +7,4 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<import resource="classpath:/org/example/demo/ticket/webapp/webappContext.xml"/>
-	
-	<!-- ===== Déclaration des Managers ===== -->
-    <import resource="classpath:/org/example/demo/ticket/business/businessContext.xml"/>
-	
 </beans>
