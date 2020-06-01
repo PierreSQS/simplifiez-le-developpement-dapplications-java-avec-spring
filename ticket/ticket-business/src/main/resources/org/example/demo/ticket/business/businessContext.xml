@@ -8,8 +8,16 @@
         https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- ===== Déclaration des Managers ===== -->
-    <bean id="projetManager" class="org.example.demo.ticket.business.manager.impl.ProjetManagerImpl"/>
-    <bean id="ticketManager" class="org.example.demo.ticket.business.manager.impl.TicketManagerImpl"/>   
+    <bean id ="abstractManager" abstract="true">
+    	<property name="daoFactory" ref="daoFactory"></property>
+    </bean>
+    
+    <bean id="projetManager" class="org.example.demo.ticket.business.manager.impl.ProjetManagerImpl" 
+    	  parent="abstractManager">
+    </bean>
+    
+    <bean id="ticketManager" class="org.example.demo.ticket.business.manager.impl.TicketManagerImpl"
+          parent="abstractManager"></bean>   
 
 
     <!-- ===== ManagerFactory ===== -->

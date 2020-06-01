@@ -1,5 +1,7 @@
 package org.example.demo.ticket.consumer.factory.impl;
 
-public class DaoFactoryImpl {
+import org.example.demo.ticket.consumer.factory.contrat.DaoFactory;
+
+public class DaoFactoryImpl implements DaoFactory {
 
 }

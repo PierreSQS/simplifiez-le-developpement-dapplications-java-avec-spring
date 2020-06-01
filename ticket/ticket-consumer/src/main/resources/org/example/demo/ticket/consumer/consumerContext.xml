@@ -6,5 +6,10 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- ===== Déclaration des DAO ===== -->
+    <bean id ="daoFactory" class="org.example.demo.ticket.consumer.factory.impl.DaoFactoryImpl">
+    	<!--property name="" ref=""></property-->
+    </bean>
 
 </beans>

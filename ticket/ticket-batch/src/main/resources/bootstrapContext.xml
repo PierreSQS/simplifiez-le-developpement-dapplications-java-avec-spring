@@ -10,4 +10,7 @@
     <!-- ===== Déclaration des Managers ===== -->
     <import resource="classpath:/org/example/demo/ticket/business/businessContext.xml"/>
     
+    <!-- ===== Déclaration des DAO ===== -->
+    <import resource="classpath:/org/example/demo/ticket/consumer/consumerContext.xml"/>
+    
 </beans>

@@ -10,7 +10,7 @@ import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.exception.NotFoundException;
 
 @Named("projetManager")
-public class ProjetManagerImpl implements ProjetManager {
+public class ProjetManagerImpl extends AbstractManager implements ProjetManager {
 
 
     /**
