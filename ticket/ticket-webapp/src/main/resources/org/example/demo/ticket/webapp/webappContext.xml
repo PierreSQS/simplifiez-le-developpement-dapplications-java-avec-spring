@@ -7,10 +7,6 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- ==== Resources JNDI ==== -->
-	<bean id="dataSourceTicket" class="org.springframework.jndi.JndiObjectFactoryBean">
-    	<property name="jndiName" value="java:comp/env/jdbc/DB_TICKET"/>
-	</bean>
 	
 	<!-- ==== Pour appeler une méthode statique sur la classe 
 	          abstraite AbstractResource ===== -->
