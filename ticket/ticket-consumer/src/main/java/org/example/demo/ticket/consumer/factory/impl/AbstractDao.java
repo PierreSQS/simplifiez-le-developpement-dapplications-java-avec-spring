@@ -1,13 +1,14 @@
 package org.example.demo.ticket.consumer.factory.impl;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 import javax.sql.DataSource;
 
 public abstract class AbstractDao {
 	
-	@Inject
-	@Named("dataSourceTicket")
+	// A ce niveau la DataSource n'est pas encore assignée
+	// bien qu'elle soit déjà instanciée. Voir webappContext.xml
+	// Donc les annotations ne sont pas évaluées
+	//@Inject
+	//@Named("dataSourceTicket")
 	private DataSource datasource;
 
 	protected DataSource getDatasource() {
