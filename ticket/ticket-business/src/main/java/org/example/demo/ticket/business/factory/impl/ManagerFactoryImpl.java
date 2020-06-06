@@ -1,19 +1,18 @@
 package org.example.demo.ticket.business.factory.impl;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.business.manager.contract.ProjetManager;
 import org.example.demo.ticket.business.manager.contract.TicketManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@Named("managerFactory")
+@Component("managerFactory")
 public class ManagerFactoryImpl implements ManagerFactory {
 
-	@Inject
+	@Autowired
 	private ProjetManager projetMgr;
 
-	@Inject
+	@Autowired
 	private TicketManager ticketMgr;
 
 	@Override
