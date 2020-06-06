@@ -8,7 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.model.exception.TechnicalException;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
 /**
@@ -31,7 +31,7 @@ public class Main {
     public static void main(String[] pArgs) throws TechnicalException {
         
     	ConfigurableApplicationContext  appCtx = 
-    			new ClassPathXmlApplicationContext("classpath:/bootStrapContext.xml");
+    			new AnnotationConfigApplicationContext("org.example.demo.ticket");
     	
     	
     	
