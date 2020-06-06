@@ -31,7 +31,7 @@ public class Main {
     public static void main(String[] pArgs) throws TechnicalException {
         
     	ConfigurableApplicationContext  appCtx = 
-    			new ClassPathXmlApplicationContext("classpath:/applicationContext.xml");
+    			new ClassPathXmlApplicationContext("classpath:/bootStrapContext.xml");
     	
     	
     	
