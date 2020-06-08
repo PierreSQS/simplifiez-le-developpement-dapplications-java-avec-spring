@@ -8,11 +8,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class DaoFactory {
 	
-	@Autowired
 	private TicketDao ticketDao;
 	
-	@Autowired
 	private ProjetDao projetDao;
+	
+	
+	@Autowired
+	public DaoFactory(TicketDao ticketDao, ProjetDao projetDao) {
+		super();
+		this.ticketDao = ticketDao;
+		this.projetDao = projetDao;
+	}
 
 	public TicketDao getTicketDao() {
 		return ticketDao;
