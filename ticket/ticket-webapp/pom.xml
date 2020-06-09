@@ -57,7 +57,13 @@
 			<artifactId>spring-web</artifactId>
 		</dependency>
 		
+        <!-- Drivers JDBC PostgreSQL -->
         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        
+		<dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>

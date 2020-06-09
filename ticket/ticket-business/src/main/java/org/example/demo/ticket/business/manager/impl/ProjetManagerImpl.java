@@ -3,13 +3,14 @@ package org.example.demo.ticket.business.manager.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.example.demo.ticket.business.manager.AbstractManager;
 import org.example.demo.ticket.business.manager.contract.ProjetManager;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.springframework.stereotype.Component;
 
 @Component("projetManager")
-public class ProjetManagerImpl implements ProjetManager {
+public class ProjetManagerImpl extends AbstractManager implements ProjetManager {
 
 
     /**
