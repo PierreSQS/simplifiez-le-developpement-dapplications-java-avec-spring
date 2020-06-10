@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
 public class ManagerFactoryImpl implements ManagerFactory {
 
 	@Autowired
-	private ProjetManager projetMgr;
+	private ProjetManager projetManager;
 
 	@Autowired
 	private TicketManager ticketMgr;
 
 	@Override
 	public void setProjetMgr(ProjetManager projetMgr) {
-		this.projetMgr = projetMgr;
+		this.projetManager = projetMgr;
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class ManagerFactoryImpl implements ManagerFactory {
 
 	@Override
 	public ProjetManager getProjetManager() {
-		return projetMgr;
+		return projetManager;
 	}
 
 	@Override
