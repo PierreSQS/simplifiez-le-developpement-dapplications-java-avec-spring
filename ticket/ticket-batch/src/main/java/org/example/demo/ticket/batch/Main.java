@@ -41,6 +41,7 @@ public class Main {
             
         	ManagerFactory vMgrFactory = appCtx.getBean("managerFactory", ManagerFactory.class);
         	
+            LOGGER.info("======= The created beans...====");
         	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(name ->{LOGGER.info(name);});
 
 
