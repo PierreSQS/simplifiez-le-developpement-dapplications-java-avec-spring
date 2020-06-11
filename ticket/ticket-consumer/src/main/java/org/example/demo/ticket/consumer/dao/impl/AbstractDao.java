@@ -1,14 +1,14 @@
-package org.example.demo.ticket.consumer.factory.impl;
+package org.example.demo.ticket.consumer.dao.impl;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public abstract class AbstractDao {
 	
-	// A ce niveau la DataSource n'est pas encore assignée
-	// bien qu'elle soit déjà instanciée. Voir webappContext.xml
-	// Donc les annotations ne sont pas évaluées
-	//@Inject
-	//@Named("dataSourceTicket")
+	@Autowired
+	@Qualifier("dataSourceTicket")
 	private DataSource datasource;
 
 	protected DataSource getDatasource() {
