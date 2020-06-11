@@ -1,6 +1,6 @@
-package org.example.demo.ticket.consumer.factory.impl;
+package org.example.demo.ticket.consumer.dao.impl;
 
-import org.example.demo.ticket.consumer.factory.contrat.TicketDao;
+import org.example.demo.ticket.consumer.dao.contrat.TicketDao;
 
 public class TicketDaoImpl extends AbstractDao implements TicketDao {
 
