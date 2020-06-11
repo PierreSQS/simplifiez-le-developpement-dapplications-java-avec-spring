@@ -12,8 +12,9 @@ import org.example.demo.ticket.model.bean.ticket.Evolution;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
+import org.springframework.stereotype.Component;
 
-@Named("ticketManager")
+@Component("ticketManager")
 public class TicketManagerImpl extends AbstractManager implements TicketManager {
 
 	/**
