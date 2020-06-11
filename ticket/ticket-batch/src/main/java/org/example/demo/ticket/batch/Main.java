@@ -10,6 +10,7 @@ import org.example.demo.ticket.model.exception.TechnicalException;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 /**
@@ -32,7 +33,7 @@ public class Main {
     public static void main(String[] pArgs) throws TechnicalException {
         
     	ConfigurableApplicationContext  appCtx = 
-    			new AnnotationConfigApplicationContext("org.example.demo.ticket");   	
+    			new ClassPathXmlApplicationContext("classpath:bootStrapContext.xml");   	
     	
     	
     	try {

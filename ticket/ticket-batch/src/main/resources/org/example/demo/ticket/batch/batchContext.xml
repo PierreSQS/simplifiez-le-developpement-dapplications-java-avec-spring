@@ -9,12 +9,8 @@
         https://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="dataSourceTicket"
-		class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-		<property name="driverClassName"
-			value="${database.ticket.driverClassName}" />
-		<property name="url" value="${database.ticket.url}" />
-		<property name="username" value="${database.ticket.username}" />
-		<property name="password" value="${database.ticket.password}" />
+		class="org.apache.commons.dbcp2.BasicDataSource" 
+		destroy-method="close">		
 	</bean>
 
 	<context:property-placeholder
