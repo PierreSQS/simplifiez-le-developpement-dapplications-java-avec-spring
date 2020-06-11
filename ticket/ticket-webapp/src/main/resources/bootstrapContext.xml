@@ -7,12 +7,10 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- ===== Instanciation de AbstractResource ===== -->
 	<import resource="classpath:/org/example/demo/ticket/webapp/webappContext.xml"/>
 	
-	<!-- ===== Déclaration des Managers ===== -->
-    <import resource="classpath:/org/example/demo/ticket/business/businessContext.xml"/>
-	
-	<!-- ===== Déclaration des DAO ===== -->
-    <import resource="classpath:/org/example/demo/ticket/consumer/consumerContext.xml"/>
+	<!-- ===== Scan des classes annotées ===== -->
+    <context:component-scan base-package="org.example.demo.ticket"></context:component-scan>
 	
 </beans>
