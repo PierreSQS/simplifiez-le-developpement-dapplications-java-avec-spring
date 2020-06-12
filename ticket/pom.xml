@@ -115,12 +115,7 @@
     			<version>42.2.12</version>
     			<scope>runtime</scope>
 			</dependency>
-			<!-- JSR-330 -->
-			<dependency>
-			    <groupId>javax.inject</groupId>
-			    <artifactId>javax.inject</artifactId>
-			    <version>1</version>
-			</dependency>
+ 
 			<dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>

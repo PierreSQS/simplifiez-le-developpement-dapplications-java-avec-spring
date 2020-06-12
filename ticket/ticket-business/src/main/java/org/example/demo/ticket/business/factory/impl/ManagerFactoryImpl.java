@@ -1,8 +1,5 @@
 package org.example.demo.ticket.business.factory.impl;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.business.manager.contract.ProjetManager;
 import org.example.demo.ticket.business.manager.contract.TicketManager;
