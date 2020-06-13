@@ -42,20 +42,7 @@ public class TicketManagerImpl extends AbstractManager implements TicketManager 
 	public List<Ticket> getListTicket(RechercheTicket pRechercheTicket) {
 		// Je n'ai pas encore codé la DAO
 		// Je mets juste un code temporaire pour commencer le cours...
-		List<Ticket> vList = new ArrayList<>();
-		if (pRechercheTicket.getProjetId() != null) {
-			Projet vProjet = new Projet(pRechercheTicket.getProjetId());
-			for (int vI = 0; vI < 4; vI++) {
-				Ticket vTicket = new Bug((long) pRechercheTicket.getProjetId() * 10 + vI);
-				vTicket.setProjet(vProjet);
-				vList.add(vTicket);
-			}
-		} else {
-			for (int vI = 0; vI < 9; vI++) {
-				Ticket vTicket = new Evolution((long) vI);
-				vList.add(vTicket);
-			}
-		}
+		List<Ticket> vList = getDaoFactory().getvTDao().search(pRechercheTicket);
 		return vList;
 	}
 
