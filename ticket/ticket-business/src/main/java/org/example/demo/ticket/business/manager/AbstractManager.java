@@ -1,21 +1,19 @@
 package org.example.demo.ticket.business.manager;
 
-import javax.sql.DataSource;
-
+import org.example.demo.ticket.consumer.factory.DaoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractManager {
-	
+
 	@Autowired
-	private DataSource dataSourceTicket;
+	private DaoFactory daofact;
 
-	protected DataSource getDataSource() {
-		return dataSourceTicket;
+	protected DaoFactory getDaofact() {
+		return daofact;
 	}
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSourceTicket = dataSource;
+	public void setDaofact(DaoFactory daofact) {
+		this.daofact = daofact;
 	}
-	
 
 }

@@ -22,13 +22,10 @@ public class ProjetManagerImpl extends AbstractManager implements ProjetManager 
      */
     @Override
 	public Projet getProjet(Integer pId) throws NotFoundException {
-        // Je n'ai pas encore codé la DAO
-        // Je mets juste un code temporaire pour commencer le cours...
         if (pId < 1) {
             throw new NotFoundException("Projet non trouvé : ID=" + pId);
         }
-        Projet vProjet = new Projet(pId);
-        vProjet.setNom("Projet n°" + pId);
+        Projet vProjet = getDaofact().getProjetDao().getProjet(pId);
         return vProjet;
     }
 
