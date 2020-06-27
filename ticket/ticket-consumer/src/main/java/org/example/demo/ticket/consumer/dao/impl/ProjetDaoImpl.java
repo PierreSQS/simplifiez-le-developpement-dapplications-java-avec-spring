@@ -26,12 +26,13 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 	public Projet getProjet(Integer pId) {
 		
 		// SQL-Statement
-		final String vSQL = "SELECT * FROM public.projet WHERE 1=1";
+		final String vSQL = "SELECT p.id, p.nom, p.date_creation, p.cloture, p.responsable_id, u.id, u.nom as \"responsable\"\r\n" + 
+	                        "FROM public.projet p, public.utilisateur u\r\n";
 		
 		
 		// StringBuilder pour gérer le paramètre pId null
 		StringBuilder vSQLBuilder = new StringBuilder(vSQL);				
-		vSQLBuilder.append(" AND id = :id ");
+		vSQLBuilder.append("WHERE p.id = u.id AND p.id = :id");
 		
 
 		// Stockage des paramètres SQL
@@ -48,6 +49,7 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 			pProj.setDateCreation(rs.getDate("date_creation"));
 			pProj.setCloture(rs.getBoolean("cloture"));
 			user.setId(rs.getInt("responsable_id"));
+			user.setNom(rs.getString("responsable"));
 			pProj.setResponsable(user);
 			return pProj;
 		};
