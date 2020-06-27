@@ -45,7 +45,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <jersey.version>2.26</jersey.version>
         <!-- spring-web nécessite un spring-context pour cette version -->
-        <spring.version>5.2.6.RELEASE</spring.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
         <postgres.driver.version>42.2.14</postgres.driver.version>
         <dbcp.common.version>2.7.0</dbcp.common.version>
     </properties>
