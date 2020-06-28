@@ -6,9 +6,13 @@ import java.util.Arrays;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
+import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.exception.TechnicalException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.Resource;
 
 
 /**
@@ -18,7 +22,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
 
-    /** Logger pour la classe */
+    
+	/** Logger pour la classe */
     private static final Log LOGGER = LogFactory.getLog(Main.class);
 
 
@@ -41,8 +46,13 @@ public class Main {
             
         	ManagerFactory vMgrFactory = appCtx.getBean("managerFactory", ManagerFactory.class);
         	
+        	Projet projet = vMgrFactory.getProjetManager().getProjet(2);
+        	LOGGER.info("======= The Projet 2 = "+ projet);
+        	
+        	        	
             LOGGER.info("======= The created beans...====");
-        	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(name ->{LOGGER.info(name);});
+        	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(LOGGER::info);
+        	
 
 
             String vTraitementId = pArgs[0];

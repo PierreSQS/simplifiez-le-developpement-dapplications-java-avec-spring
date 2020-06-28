@@ -18,8 +18,10 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 	
-	<!-- ========= chargement du fichier properties ========= -->
-	<context:property-placeholder location="file:${TICKET_HOME}/src/data/conf/db-ticket.properties"/>
+
+	<!-- ========= chargement des fichiers *.properties ========= -->
+	<context:property-placeholder location="file:${TICKET_HOME}/src/data/conf/db-ticket.properties,
+										    file:${TICKET_HOME}/src/data/conf/config.properties"/>
 
 	<!-- ========= scan des annotations ========= -->	
 	<context:component-scan base-package="org.example.demo.ticket"></context:component-scan>
