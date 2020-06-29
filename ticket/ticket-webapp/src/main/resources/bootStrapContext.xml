@@ -8,4 +8,6 @@
         https://www.springframework.org/schema/context/spring-context.xsd">
 
 	<import resource="classpath:/org/example/demo/ticket/webapp/webappContext.xml"/>
+	<import resource="classpath:/org/example/demo/ticket/consumer/consumerContext.xml"/>
+	
 </beans>

@@ -1,6 +1,5 @@
 package org.example.demo.ticket.business.manager.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.example.demo.ticket.business.manager.AbstractManager;
@@ -37,9 +36,8 @@ public class ProjetManagerImpl extends AbstractManager implements ProjetManager 
      */
     @Override
 	public List<Projet> getListProjet() {
-        // Je n'ai pas encore codé la DAO
-        // Je mets juste un code temporaire pour commencer le cours...
-        List<Projet> vList = new ArrayList<>();
+  
+        List<Projet> vList = getDaofact().getProjetDao().getListProjet();
         for (int vI = 0; vI < 9; vI++) {
             Projet vProjet = new Projet(vI);
             vProjet.setNom("Projet n°" + vI);

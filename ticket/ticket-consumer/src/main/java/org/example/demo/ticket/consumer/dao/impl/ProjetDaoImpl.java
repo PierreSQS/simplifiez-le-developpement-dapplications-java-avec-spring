@@ -12,7 +12,6 @@ import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.bean.utilisateur.Utilisateur;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -54,11 +53,8 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 			return pProj;
 		};
 		
-		// NamedParameter
-		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-		
 		// Execution de la commande SQL
-		List<Projet> vProjets = vJdbcTemplate.query(vSQLBuilder.toString(), vParams, rowMapper);
+		List<Projet> vProjets = getvNamedJdbcTemplate().query(vSQLBuilder.toString(), vParams, rowMapper);
 
 		// retour du projet
 		Optional<Projet> optProjet = vProjets.stream().findFirst();
@@ -72,6 +68,28 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 		LOGGER.info(noProjMessage);
 		return pProj;		
 	
+	}
+
+	@Override
+	public List<Projet> getListProjet() {
+		final String vSQL = "SELECT * FROM public.projet";
+
+		RowMapper<Projet> vRowMapper = (ResultSet rs, int rowNum) -> {
+
+			Utilisateur user = new Utilisateur();
+
+			Projet vProj = new Projet(rs.getInt("id"));
+			vProj.setNom(rs.getString("nom"));
+			vProj.setDateCreation(rs.getDate("date_creation"));
+			vProj.setCloture(rs.getBoolean("cloture"));
+			user.setId(rs.getInt("responsable_id"));
+			vProj.setResponsable(user);
+			return vProj;
+
+		};
+
+		List<Projet> vListProjet = getvJdbcTemplate().query(vSQL, vRowMapper);
+		return vListProjet;
 	}
 
 }

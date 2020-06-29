@@ -8,4 +8,5 @@
         https://www.springframework.org/schema/context/spring-context.xsd">
 
 	<import resource="classpath:/org/example/demo/ticket/batch/batchContext.xml"/>
+	<import resource="classpath:/org/example/demo/ticket/consumer/consumerContext.xml"/>
 </beans>
