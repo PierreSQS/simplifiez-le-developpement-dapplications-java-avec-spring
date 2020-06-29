@@ -21,25 +21,24 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 	// Logger de la classe
 	private final static Log LOGGER = LogFactory.getLog(ProjetDaoImpl.class);
 	
+	// SQL-Statement
+	private final static String vSELECT_ALL_PROJETS = 
+			"SELECT p.id, p.nom, p.date_creation, p.cloture, p.responsable_id, u.id, u.nom as \"responsable\"\r\n" + 
+            "FROM public.projet p, public.utilisateur u\r\n" +
+            "WHERE p.responsable_id = u.id";
+
+	
 	@Override
 	public Projet getProjet(Integer pId) {
 		
-		// SQL-Statement
-		final String vSQL = "SELECT p.id, p.nom, p.date_creation, p.cloture, p.responsable_id, u.id, u.nom as \"responsable\"\r\n" + 
-	                        "FROM public.projet p, public.utilisateur u\r\n";
-		
-		
 		// StringBuilder pour gérer le paramètre pId null
-		StringBuilder vSQLBuilder = new StringBuilder(vSQL);				
-		vSQLBuilder.append("WHERE p.id = u.id AND p.id = :id");
+		StringBuilder vSQLBuilder = new StringBuilder(vSELECT_ALL_PROJETS);				
+		vSQLBuilder.append(" AND p.id = :id");
 		
 
 		// Stockage des paramètres SQL
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("id", pId);
-		
-		// user pour le RowMapper		
-		Utilisateur user = new Utilisateur();
 		
 		// RowMapper
 		RowMapper<Projet> rowMapper = (ResultSet rs, int rowNummer) -> {
@@ -47,6 +46,9 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 			pProj.setNom(rs.getString("nom"));
 			pProj.setDateCreation(rs.getDate("date_creation"));
 			pProj.setCloture(rs.getBoolean("cloture"));
+			
+			// user pour le RowMapper projets
+			Utilisateur user = new Utilisateur();			
 			user.setId(rs.getInt("responsable_id"));
 			user.setNom(rs.getString("responsable"));
 			pProj.setResponsable(user);
@@ -72,23 +74,25 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 
 	@Override
 	public List<Projet> getListProjet() {
-		final String vSQL = "SELECT * FROM public.projet";
 
 		RowMapper<Projet> vRowMapper = (ResultSet rs, int rowNum) -> {
-
-			Utilisateur user = new Utilisateur();
 
 			Projet vProj = new Projet(rs.getInt("id"));
 			vProj.setNom(rs.getString("nom"));
 			vProj.setDateCreation(rs.getDate("date_creation"));
+			
+			// user pour le RowMapper projets
+			Utilisateur user = new Utilisateur();
+			
 			vProj.setCloture(rs.getBoolean("cloture"));
 			user.setId(rs.getInt("responsable_id"));
+			user.setNom(rs.getString("responsable"));
 			vProj.setResponsable(user);
 			return vProj;
 
 		};
 
-		List<Projet> vListProjet = getvJdbcTemplate().query(vSQL, vRowMapper);
+		List<Projet> vListProjet = getvJdbcTemplate().query(vSELECT_ALL_PROJETS, vRowMapper);
 		return vListProjet;
 	}
 
