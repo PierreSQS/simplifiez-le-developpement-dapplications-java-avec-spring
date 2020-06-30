@@ -47,11 +47,13 @@ public class Main {
         	LOGGER.info("======= The Projet 2 = "+ projet);
         	
         	        	
-            LOGGER.info("======= The created beans...====");
+            int beansAmount = appCtx.getBeanDefinitionCount();
+        	LOGGER.info("======= The Amount of created beans in the App Context: "+beansAmount+" ====");
+
+            LOGGER.info("======= The created beans... ====");
         	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(LOGGER::info);
         	
-
-
+        	
             String vTraitementId = pArgs[0];
             if ("ExportTicketStatus".equals(vTraitementId)) {
                 LOGGER.info("Execution du traitement : ExportTicketStatus");
