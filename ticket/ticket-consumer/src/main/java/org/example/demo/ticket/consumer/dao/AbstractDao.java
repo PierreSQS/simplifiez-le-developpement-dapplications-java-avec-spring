@@ -1,4 +1,4 @@
-package org.example.demo.ticket.consumer;
+package org.example.demo.ticket.consumer.dao;
 
 import javax.sql.DataSource;
 

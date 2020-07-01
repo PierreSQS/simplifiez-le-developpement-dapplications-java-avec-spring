@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.example.demo.ticket.consumer.AbstractDao;
+import org.example.demo.ticket.consumer.dao.AbstractDao;
 import org.example.demo.ticket.consumer.dao.contrat.TicketDao;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.bean.ticket.Evolution;
