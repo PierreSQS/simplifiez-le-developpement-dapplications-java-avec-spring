@@ -1,12 +1,9 @@
 package org.example.demo.ticket.business.manager.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.example.demo.ticket.business.manager.AbstractManager;
 import org.example.demo.ticket.business.manager.contract.TicketManager;
-import org.example.demo.ticket.model.bean.projet.Projet;
-import org.example.demo.ticket.model.bean.ticket.Bug;
 import org.example.demo.ticket.model.bean.ticket.Evolution;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
 import org.example.demo.ticket.model.exception.NotFoundException;
@@ -25,8 +22,9 @@ public class TicketManagerImpl extends AbstractManager implements TicketManager 
 	 */
 	@Override
 	public Ticket getTicket(Long pNumero) throws NotFoundException {
-		// Je n'ai pas encore codé la DAO
-		// Je mets juste un code temporaire pour commencer le cours...
+		
+		//TODO Ameliorer le code
+		
 		if (pNumero < 1L) {
 			throw new NotFoundException("Ticket non trouvé : numero=" + pNumero);
 		}
@@ -44,22 +42,21 @@ public class TicketManagerImpl extends AbstractManager implements TicketManager 
 	 */
 	@Override
 	public List<Ticket> getListTicket(RechercheTicket pRechercheTicket) {
-		// Je n'ai pas encore codé la DAO
-		// Je mets juste un code temporaire pour commencer le cours...
-		List<Ticket> vList = new ArrayList<>();
-		if (pRechercheTicket.getProjetId() != null) {
-			Projet vProjet = new Projet(pRechercheTicket.getProjetId());
-			for (int vI = 0; vI < 4; vI++) {
-				Ticket vTicket = new Bug((long) pRechercheTicket.getProjetId() * 10 + vI);
-				vTicket.setProjet(vProjet);
-				vList.add(vTicket);
-			}
-		} else {
-			for (int vI = 0; vI < 9; vI++) {
-				Ticket vTicket = new Evolution((long) vI);
-				vList.add(vTicket);
-			}
-		}
+
+		List<Ticket> vList = getDaofact().getTicketDao().getListTicket(pRechercheTicket);
+//		if (pRechercheTicket.getProjetId() != null) {
+//			Projet vProjet = new Projet(pRechercheTicket.getProjetId());
+//			for (int vI = 0; vI < 4; vI++) {
+//				Ticket vTicket = new Bug((long) pRechercheTicket.getProjetId() * 10 + vI);
+//				vTicket.setProjet(vProjet);
+//				vList.add(vTicket);
+//			}
+//		} else {
+//			for (int vI = 0; vI < 9; vI++) {
+//				Ticket vTicket = new Evolution((long) vI);
+//				vList.add(vTicket);
+//			}
+//		}
 		return vList;
 	}
 

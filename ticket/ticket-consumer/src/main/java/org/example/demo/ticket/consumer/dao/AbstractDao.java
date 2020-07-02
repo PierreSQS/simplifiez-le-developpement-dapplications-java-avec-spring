@@ -18,10 +18,6 @@ public abstract class AbstractDao {
 	private NamedParameterJdbcTemplate vNamedJdbcTemplate;
 
 
-	protected DataSource getDataSource() {
-		return dataSourceTicket;
-	}
-
 	public void setDataSource(DataSource dataSource) {
 		this.dataSourceTicket = dataSource;
 	}

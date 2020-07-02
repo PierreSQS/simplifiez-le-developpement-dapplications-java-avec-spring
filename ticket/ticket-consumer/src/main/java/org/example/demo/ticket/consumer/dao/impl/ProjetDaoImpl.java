@@ -1,6 +1,5 @@
 package org.example.demo.ticket.consumer.dao.impl;
 
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,9 +7,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.consumer.dao.AbstractDao;
 import org.example.demo.ticket.consumer.dao.contrat.ProjetDao;
+import org.example.demo.ticket.consumer.rowmapper.projet.ProjetRM;
 import org.example.demo.ticket.model.bean.projet.Projet;
-import org.example.demo.ticket.model.bean.utilisateur.Utilisateur;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
@@ -40,23 +38,9 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("id", pId);
 		
-		// RowMapper
-		RowMapper<Projet> rowMapper = (ResultSet rs, int rowNummer) -> {
-			Projet pProj = new Projet(rs.getInt("id"));
-			pProj.setNom(rs.getString("nom"));
-			pProj.setDateCreation(rs.getDate("date_creation"));
-			pProj.setCloture(rs.getBoolean("cloture"));
-			
-			// user pour le RowMapper projets
-			Utilisateur user = new Utilisateur();			
-			user.setId(rs.getInt("responsable_id"));
-			user.setNom(rs.getString("responsable"));
-			pProj.setResponsable(user);
-			return pProj;
-		};
-		
 		// Execution de la commande SQL
-		List<Projet> vProjets = getvNamedJdbcTemplate().query(vSQLBuilder.toString(), vParams, rowMapper);
+		List<Projet> vProjets = getvNamedJdbcTemplate()
+				.query(vSQLBuilder.toString(), vParams, ProjetRM.ROWMAPPERPROJET);
 
 		// retour du projet
 		Optional<Projet> optProjet = vProjets.stream().findFirst();
@@ -75,24 +59,8 @@ public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 	@Override
 	public List<Projet> getListProjet() {
 
-		RowMapper<Projet> vRowMapper = (ResultSet rs, int rowNum) -> {
-
-			Projet vProj = new Projet(rs.getInt("id"));
-			vProj.setNom(rs.getString("nom"));
-			vProj.setDateCreation(rs.getDate("date_creation"));
-			
-			// user pour le RowMapper projets
-			Utilisateur user = new Utilisateur();
-			
-			vProj.setCloture(rs.getBoolean("cloture"));
-			user.setId(rs.getInt("responsable_id"));
-			user.setNom(rs.getString("responsable"));
-			vProj.setResponsable(user);
-			return vProj;
-
-		};
-
-		List<Projet> vListProjet = getvJdbcTemplate().query(vSELECT_ALL_PROJETS, vRowMapper);
+		List<Projet> vListProjet = getvJdbcTemplate()
+				.query(vSELECT_ALL_PROJETS, ProjetRM.ROWMAPPERPROJET);
 		return vListProjet;
 	}
 
