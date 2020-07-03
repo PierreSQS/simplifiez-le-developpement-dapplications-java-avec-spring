@@ -1,7 +1,5 @@
 package org.example.demo.ticket.consumer.dao;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -9,18 +7,11 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 public abstract class AbstractDao {
 	
 	@Autowired
-	private DataSource dataSourceTicket;
-	
-	@Autowired
 	private JdbcTemplate vJdbcTemplate;
 	
 	@Autowired
 	private NamedParameterJdbcTemplate vNamedJdbcTemplate;
 
-
-	public void setDataSource(DataSource dataSource) {
-		this.dataSourceTicket = dataSource;
-	}
 
 	protected JdbcTemplate getvJdbcTemplate() {
 		return vJdbcTemplate;
