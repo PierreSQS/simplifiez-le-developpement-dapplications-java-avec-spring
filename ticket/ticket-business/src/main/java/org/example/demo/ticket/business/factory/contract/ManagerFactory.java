@@ -5,14 +5,12 @@ import org.example.demo.ticket.business.manager.contract.TicketManager;
 
 public interface ManagerFactory {
 
-	TicketManager getTicketManager();
-
 	ProjetManager getProjetManager();
 
-	void setTicketMgr(TicketManager ticketMgr);
+	void setTicketManager(TicketManager ticketMgr);
 
-	TicketManager getTicketMgr();
+	TicketManager getTicketManager();
 
-	void setProjetMgr(ProjetManager projetMgr);
+	void setProjetManager(ProjetManager projetMgr);
 
 }

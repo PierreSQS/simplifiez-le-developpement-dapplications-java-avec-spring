@@ -16,18 +16,8 @@ public class ManagerFactoryImpl implements ManagerFactory {
 	private TicketManager ticketMgr;
 
 	@Override
-	public void setProjetMgr(ProjetManager projetMgr) {
+	public void setProjetManager(ProjetManager projetMgr) {
 		this.projetMgr = projetMgr;
-	}
-
-	@Override
-	public TicketManager getTicketMgr() {
-		return ticketMgr;
-	}
-
-	@Override
-	public void setTicketMgr(TicketManager ticketMgr) {
-		this.ticketMgr = ticketMgr;
 	}
 
 	@Override
@@ -38,6 +28,11 @@ public class ManagerFactoryImpl implements ManagerFactory {
 	@Override
 	public TicketManager getTicketManager() {
 		return ticketMgr;
+	}
+
+	@Override
+	public void setTicketManager(TicketManager ticketMgr) {
+		this.ticketMgr = ticketMgr;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.example.demo.ticket.model.bean.ticket.Evolution;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
+import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
 
 public interface TicketDao {
@@ -21,5 +22,12 @@ public interface TicketDao {
 	 * @return List
 	 */
 	List<Ticket> getListTicket(RechercheTicket pTicket);
+
+	/**
+	 * Renvoie la liste des statuts {@link TicketStatut} de ticket.
+	 *
+	 * @return List
+	 */
+	List<TicketStatut> getTicketStatuts();
 
 }

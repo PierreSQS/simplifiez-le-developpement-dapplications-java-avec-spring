@@ -8,8 +8,10 @@ import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.consumer.dao.AbstractDao;
 import org.example.demo.ticket.consumer.dao.contrat.TicketDao;
 import org.example.demo.ticket.consumer.rowmapper.ticket.TicketRM;
+import org.example.demo.ticket.consumer.rowmapper.ticket.TicketStatutRM;
 import org.example.demo.ticket.model.bean.ticket.Evolution;
 import org.example.demo.ticket.model.bean.ticket.Ticket;
+import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
@@ -21,9 +23,13 @@ public class TicketDaoImpl extends AbstractDao implements TicketDao {
 	// Logger de la classe
 	private final static Log LOGGER = LogFactory.getLog(TicketDao.class);
 
-	// SQL-Statement
+	// requête: tous les tickets
 	private final static String vSELECT_ALL_TICKETS = "SELECT t.numero, t.titre, t.description, t.date, p.id, p.nom\r\n"
 			+ "FROM public.ticket t, public.projet p " + "WHERE t.projet_id = p.id ";
+
+	// requête: tous les statuts de tickets
+	private final static String vSELECT_ALL_STATUTS = "SELECT * FROM public.statut\r\n"
+			+ "ORDER BY id ASC ";
 
 	@Override
 	public Evolution getTicket(Long pNumero) {
@@ -96,5 +102,19 @@ public class TicketDaoImpl extends AbstractDao implements TicketDao {
 		return vTicketListe;
 
 	}
+	
+	/**
+	 * Renvoie la liste des statuts {@link TicketStatut} de ticket.
+	 *
+	 * @return List
+	 */
+	
+	@Override
+	public List<TicketStatut> getTicketStatuts() {
+		
+		return getvJdbcTemplate()
+				.query(vSELECT_ALL_STATUTS, TicketStatutRM.ROWMAPPERTICKETSTATUT);
+	}
+
 
 }

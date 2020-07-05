@@ -1,15 +1,24 @@
 package org.example.demo.ticket.batch;
 
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.example.demo.ticket.business.factory.contract.ManagerFactory;
 import org.example.demo.ticket.model.bean.projet.Projet;
+import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.exception.TechnicalException;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 
 
 /**
@@ -53,11 +62,18 @@ public class Main {
             LOGGER.info("======= The created beans... ====");
         	Arrays.asList(appCtx.getBeanDefinitionNames()).stream().forEach(LOGGER::info);
         	
+        	Resource vRes = appCtx.getBean("resourceTicket", FileSystemResource.class);
+        	
+        	List<TicketStatut> ticketStatuts = vMgrFactory.getTicketManager().getListTicketStatut();
+        	
+        	List<String> listeStatus = ticketStatuts.stream().map(TicketStatut::toString)
+        			                                         .collect(Collectors.toList());
         	
             String vTraitementId = pArgs[0];
             if ("ExportTicketStatus".equals(vTraitementId)) {
                 LOGGER.info("Execution du traitement : ExportTicketStatus");
-                // ...
+               	writeStatut(vRes, listeStatus);
+                LOGGER.info("Execution du traitement terminé avec succès!!!");
             } else {
                 throw new TechnicalException("Traitement inconnu : " + vTraitementId);
             }
@@ -68,4 +84,14 @@ public class Main {
 			appCtx.close();
 		}
     }
+    
+
+	private static void writeStatut(Resource vRes, List<String> lines) throws IOException {
+//		Files.write(Paths.get(vRes.getFilename()).toAbsolutePath(), lines, StandardCharsets.UTF_8);
+		Files.write(Paths.get(vRes.getURI()), lines, StandardCharsets.UTF_8);
+		LOGGER.info("###### URI: "+vRes.getURI().toString());
+		LOGGER.info("###### File-Path: "+Paths.get(vRes.getFilename()).toAbsolutePath().toString());		
+	}    
+    
+
 }

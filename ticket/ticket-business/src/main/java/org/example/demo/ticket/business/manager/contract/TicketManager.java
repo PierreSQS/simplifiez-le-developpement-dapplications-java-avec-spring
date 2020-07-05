@@ -3,6 +3,7 @@ package org.example.demo.ticket.business.manager.contract;
 import java.util.List;
 
 import org.example.demo.ticket.model.bean.ticket.Ticket;
+import org.example.demo.ticket.model.bean.ticket.TicketStatut;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
 
@@ -23,6 +24,14 @@ public interface TicketManager {
 	 * @return List
 	 */
 	List<Ticket> getListTicket(RechercheTicket pRechercheTicket);
+
+	/**
+	 * Renvoie la liste des {@link TicketStatut}  Statuts de tickets.
+	 *
+	 * @param pRechercheTicket -
+	 * @return List
+	 */
+	List<TicketStatut> getListTicketStatut();
 
 	/**
 	 * Cherche et renvoie le {@link Ticket} numéro {@code pNumero}
