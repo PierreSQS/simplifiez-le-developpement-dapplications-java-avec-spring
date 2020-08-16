@@ -38,18 +38,13 @@
 
         <!-- ===== Bibliothèques tierces ===== -->
         <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-jdbc</artifactId>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>
 
-		<!-- ===== JUNIT5-Tests ===== -->
 		<dependency>
-	        <groupId>org.junit.jupiter</groupId>
-	        <artifactId>junit-jupiter-api</artifactId>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.junit.jupiter</groupId>
-	        <artifactId>junit-jupiter-engine</artifactId>
-	    </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
     </dependencies>
 </project>
