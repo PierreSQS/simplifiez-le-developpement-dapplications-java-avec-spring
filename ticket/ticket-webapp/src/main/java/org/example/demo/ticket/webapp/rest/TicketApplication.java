@@ -1,22 +1,18 @@
 package org.example.demo.ticket.webapp.rest;
 
-import javax.ws.rs.ApplicationPath;
-
-import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * Classe de configuration de l'application REST
+ * Transformation jersey-rest -> SpringBoot
  *
- * @author lgu
+ * @author Pierrot Mongonnam
  */
-@ApplicationPath("/")
-public class RestApplication extends ResourceConfig {
-
-    /**
-     * Constructeur par défaut.
-     */
-    public RestApplication() {
-        packages("org.example.demo.ticket.webapp.rest");
-    }
+@SpringBootApplication
+public class TicketApplication {
+	
+	public static void main(String...args) {
+		SpringApplication.run(TicketApplication.class, args);
+	}
 }

@@ -1,23 +1,29 @@
 package org.example.demo.ticket.webapp.rest.provider.mapper.exception;
 
 
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.ExceptionMapper;
-import javax.ws.rs.ext.Provider;
+
 
 import org.example.demo.ticket.model.exception.NotFoundException;
-
+import org.example.demo.ticket.webapp.rest.provider.exception.ResourceNotFoundException;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * {@link ExceptionMapper} pour les {@link NotFoundException}
+ * {@link NotFoundExceptionAdvice} pour les {@link ResourceNotFoundException}
  *
- * @author lgu
+ * @author Pierrot Mongonnam
  */
-@Provider
-public class NotFoundExceptionMapper implements ExceptionMapper<NotFoundException> {
 
-    @Override
-    public Response toResponse(NotFoundException pException) {
-        return Response.status(Response.Status.NOT_FOUND).entity(pException.getMessage()).build();
+@ControllerAdvice
+public class NotFoundExceptionAdvice {
+
+	@ResponseBody
+	@ExceptionHandler(ResourceNotFoundException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public String resourceNotFoundHandler(ResourceNotFoundException pException) {
+        return pException.getMessage();
     }
 }

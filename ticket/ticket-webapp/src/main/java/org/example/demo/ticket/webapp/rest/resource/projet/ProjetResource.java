@@ -2,16 +2,13 @@ package org.example.demo.ticket.webapp.rest.resource.projet;
 
 import java.util.List;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-
 import org.example.demo.ticket.business.manager.contract.ProjetManager;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.webapp.rest.resource.AbstractResource;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 /**
@@ -19,8 +16,7 @@ import org.example.demo.ticket.webapp.rest.resource.AbstractResource;
  *
  * @author lgu
  */
-@Path("/projets")
-@Produces(MediaType.APPLICATION_JSON)
+@RequestMapping("/projets")
 public class ProjetResource extends AbstractResource{
 
     /**
@@ -35,21 +31,20 @@ public class ProjetResource extends AbstractResource{
      * http://localhost:8080/ticket-webapp/projets/?id=4. 
      * Cet appel déclenche la méthode ci-dessus!!!! 
      */
-    @GET
-    @Path("{id}")
-    public Projet get(@PathParam("id") Integer pId) throws NotFoundException {
+    @GetMapping("{id}")
+    public Projet get(@PathVariable("id") Integer pId) throws NotFoundException {
         ProjetManager vProjetManager = getManagerFactory().getProjetManager();
         Projet vProjet = vProjetManager.getProjet(pId);
         return vProjet;
     }
 
 
-    /**
+    /**v+
      * Renvoie tous les {@link Projet}
      *
      * @return List
      */
-    @GET
+    @GetMapping
     public List<Projet> get() {
         ProjetManager vProjetManager = getManagerFactory().getProjetManager();
         List<Projet> vListProjet = vProjetManager.getListProjet();
