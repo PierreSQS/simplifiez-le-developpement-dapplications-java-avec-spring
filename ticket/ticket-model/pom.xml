@@ -24,18 +24,11 @@
     <!-- =============================================================== -->
     <!-- Dépendances -->
     <!-- =============================================================== -->
+    <!-- ===== Bibliothèques tierces ===== -->
     <dependencies>
-        <!-- ===== Bibliothèques tierces ===== -->
-
-
-		<!-- ===== JUNIT5-Tests ===== -->
-		<dependency>
-	        <groupId>org.junit.jupiter</groupId>
-	        <artifactId>junit-jupiter-api</artifactId>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.junit.jupiter</groupId>
-	        <artifactId>junit-jupiter-engine</artifactId>
-	    </dependency>
-    </dependencies>
+        <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+     </dependencies>
 </project>

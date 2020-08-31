@@ -3,7 +3,6 @@ package org.example.demo.ticket.webapp.rest.provider.mapper.exception;
 
 
 
-import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.webapp.rest.provider.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

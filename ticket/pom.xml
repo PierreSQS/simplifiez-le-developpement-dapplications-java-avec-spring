@@ -103,7 +103,8 @@
                 <version>${project.version}</version>
             </dependency>
 			
-            <!-- ===== Bibliothèques tierces ===== --><dependency>
+            <!-- ===== Bibliothèques tierces ===== -->
+            <dependency>
 			    <groupId>org.postgresql</groupId>
 			    <artifactId>postgresql</artifactId>
 			    <version>${postgres.version}</version>
@@ -144,14 +145,7 @@
                         <showWarnings>true</showWarnings>
                     </configuration>
                 </plugin>
-
-                <!-- Assemblage -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-
+                
                 <!-- Site -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

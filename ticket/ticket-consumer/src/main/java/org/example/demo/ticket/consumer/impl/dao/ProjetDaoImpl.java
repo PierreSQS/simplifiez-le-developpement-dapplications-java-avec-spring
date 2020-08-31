@@ -10,8 +10,9 @@ import org.example.demo.ticket.consumer.rowmapper.ProjetRM;
 import org.example.demo.ticket.model.bean.projet.Projet;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component("ProjetDao")
+@Repository("ProjetDao")
 public class ProjetDaoImpl extends AbstractDao implements ProjetDao {
 	
 	private final static String vSELECT_ALL_PROJECTS = "SELECT p.id, p.nom, p.date_creation, p.cloture, u.id as \"resp_id\", u.nom as \"responsable\"\r\n" + 

@@ -7,6 +7,7 @@ import org.example.demo.ticket.model.bean.ticket.Ticket;
 import org.example.demo.ticket.model.exception.NotFoundException;
 import org.example.demo.ticket.model.recherche.ticket.RechercheTicket;
 import org.example.demo.ticket.webapp.rest.resource.AbstractResource;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author lgu
  */
+
+@Controller
 @RequestMapping(path = "/tickets")
 public class TicketResource extends AbstractResource {
 
