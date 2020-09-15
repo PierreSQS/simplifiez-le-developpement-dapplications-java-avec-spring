@@ -2,11 +2,6 @@ package org.example.demo.ticket.model.bean.projet;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
 import org.example.demo.ticket.model.bean.utilisateur.Utilisateur;
 
 
@@ -15,17 +10,14 @@ import org.example.demo.ticket.model.bean.utilisateur.Utilisateur;
  *
  * @author lgu
  */
-@Entity
 public class Projet {
 
     // ==================== Attributs ====================
-	@Id
     private Integer id;
     private String nom;
     private Date dateCreation;
     private Boolean cloture;
-    @OneToOne
-    @JoinColumn(name = "id", referencedColumnName="responsable_id", insertable=false, updatable=false)
+
     private Utilisateur responsable;
 
 

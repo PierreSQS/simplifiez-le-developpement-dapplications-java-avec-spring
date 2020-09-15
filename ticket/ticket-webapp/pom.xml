@@ -57,23 +57,17 @@
         	<artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
 		<dependency>
 		    <groupId>org.postgresql</groupId>
 		    <artifactId>postgresql</artifactId>
 		</dependency>
 		
-		<!-- Pour Test d'integration sur la BD en production. 
-		     Ici PostGres 12.3-1. Pas conseillé en pratique !!!!
-		     A REVOIR PLUS TARD PUISQUE NOUS SOMMES EN PRESENCE
-		     DE SPRINGBOOT DANS LE CAS PRESENT!!!!!
-		     IL DOIT EXISTER DES OPTIONS PLUS ELEGANTES -->
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-dbcp2</artifactId>
-		    <scope>test</scope>
-		</dependency>
-
     </dependencies>
 
     <!-- =============================================================== -->
